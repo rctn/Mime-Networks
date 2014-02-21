@@ -14,26 +14,26 @@ class vanHatData:
 
 		self.patch_width = patch_width
 		self.patch_size = self.patch_width**2
-		self.ntrain = ntrain
-		self.nholdout = nholdout
+		self.ntrain = int(ntrain)
+		self.nholdout = int(nholdout)
 
 		try:
 			print "trying to load data ..."
-			self.X = self.open_datafiles(base_fname + 'data_', ntrain)
+			self.X = self.open_datafiles(base_fname + 'data_', self.ntrain)
 			print "...data loaded"
 		except:
 			print "...could not load.  generating new dataset..."
-			self.X = self.open_datafiles(base_fname + 'data_', ntrain, mode='w+')
+			self.X = self.open_datafiles(base_fname + 'data_', self.ntrain, mode='w+')
 			self.generate_X(ntrain, self.X, img_path=img_path)
 			print "...data generated"
 
 		try:
 			print "trying to load holdout data ..."
-			self.X_holdout = self.open_datafiles(base_fname + 'holdout_', nholdout)
+			self.X_holdout = self.open_datafiles(base_fname + 'holdout_', self.nholdout)
 			print "...holdout data loaded"
 		except:
 			print "...could not load holdout data.  generating new dataset..."
-			self.X_holdout = self.open_datafiles(base_fname + 'holdout_', nholdout, mode='w+')
+			self.X_holdout = self.open_datafiles(base_fname + 'holdout_', self.nholdout, mode='w+')
 			self.generate_X(nholdout, self.X_holdout, img_path=img_path)
 			print "...holdout generated"
 
