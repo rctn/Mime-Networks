@@ -71,6 +71,9 @@ class vanHatData:
 		if len(img_list) == 0:
 			throw("no image files, using random data")
 
+		images_per_batch = int(images_per_batch)
+		ntrain_per_batch = int(ntrain_per_batch)
+
 		i0 = 0
 		i1 = min(ntrain_per_batch, ntrain)
 		for ni in range(int(np.ceil(ntrain/ntrain_per_batch))):
