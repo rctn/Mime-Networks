@@ -4,14 +4,16 @@ import numpy as np
 import glob
 
 class vanHatData:
-	def __init__(self, model, ntrain=1e6, nholdout = 10000, img_path=None, base_fname=''):
+	def __init__(self, patch_width=8, ntrain=1e6, nholdout = 10000, img_path=None, base_fname=''):
 		"""
 		Load vanHateren dataset with number of training points and holdout points outlined above.
+
+		img_path -- Path to vanHateren images.
+		base_fname -- Base filename to save extracted patches.
 		"""
 
-		self.patch_width = model.patch_width
-		self.halfwidth = model.halfwidth
-		self.patch_size = model.patch_width**2
+		self.patch_width = patch_width
+		self.patch_size = self.patch_width**2
 		self.ntrain = ntrain
 		self.nholdout = nholdout
 
