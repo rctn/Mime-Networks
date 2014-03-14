@@ -48,7 +48,7 @@ class vanHatData:
 			X = self.X_holdout
 		i0 = min(i0, X.shape[0])
 		i1 = min(i1, X.shape[0])
-		return X[i0:i1,:-2].copy()
+		return X[i0:i1].copy()
 
 	def open_datafiles(self, base_fname, ntrain, mode='r'):
 		"""
